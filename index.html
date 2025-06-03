@@ -172,6 +172,33 @@
 
     <!-- 主要内容 -->
     <main class="main-container" role="main">
+        <!-- 最新游戏和最火游戏区域 -->
+        <section class="featured-section" id="special-games">
+            <header>
+                <h2 class="section-title">🔥 精选游戏区域</h2>
+            </header>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px;">
+                <!-- 最新游戏 -->
+                <div class="special-category">
+                    <h3 class="special-title">🆕 最新游戏</h3>
+                    <p class="special-subtitle">体验最新添加的热门游戏</p>
+                    <div class="special-games-grid" id="latestGamesGrid">
+                        <!-- 最新游戏将通过JavaScript生成 -->
+                    </div>
+                </div>
+                
+                <!-- 最火游戏TOP10 -->
+                <div class="special-category">
+                    <h3 class="special-title">🏆 最火游戏TOP10</h3>
+                    <p class="special-subtitle">最受欢迎的十大游戏</p>
+                    <div class="special-games-grid" id="topGamesGrid">
+                        <!-- TOP10游戏将通过JavaScript生成 -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <!-- 特色游戏区域 -->
         <section class="featured-section" id="featured-games">
             <header>
@@ -272,7 +299,52 @@
                 <h3 id="modalGameTitle">Game Title</h3>
                 <button class="close-btn" onclick="closeGameModal()">&times;</button>
             </div>
-            <iframe class="game-frame" id="gameFrame" src=""></iframe>
+            
+            <!-- 游戏主体区域 -->
+            <div class="game-main-area">
+                <iframe class="game-frame" id="gameFrame" src=""></iframe>
+                
+                <!-- 游戏详情侧边栏 -->
+                <div class="game-details-sidebar">
+                    <div class="game-info-section">
+                        <h4>🎮 游戏简介</h4>
+                        <div class="game-category-tag" id="modalGameCategory">动作游戏</div>
+                        <p class="game-description" id="modalGameDescription">
+                            游戏描述将在这里显示...
+                        </p>
+                        <div class="game-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">游戏类型:</span>
+                                <span class="meta-value" id="modalGameType">动作</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">难度等级:</span>
+                                <span class="meta-value" id="modalGameDifficulty">中等</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">游戏时长:</span>
+                                <span class="meta-value" id="modalGameDuration">30分钟</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">推荐年龄:</span>
+                                <span class="meta-value" id="modalGameAge">12+</span>
+                            </div>
+                        </div>
+                        
+                        <div class="game-tags" id="modalGameTags">
+                            <!-- 游戏标签将通过JavaScript生成 -->
+                        </div>
+                    </div>
+                    
+                    <!-- 猜你喜欢区域 -->
+                    <div class="recommendations-section">
+                        <h4>💡 猜你喜欢</h4>
+                        <div class="recommended-games" id="recommendedGames">
+                            <!-- 推荐游戏将通过JavaScript生成 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

@@ -83,7 +83,7 @@ const translations = {
     }
 };
 
-// 游戏数据
+// 增强的游戏数据
 const gamesData = {
     en: [
         {
@@ -91,64 +91,150 @@ const gamesData = {
             title: "Monster Survivors",
             category: "action",
             icon: "👹",
-            description: "Battle through endless waves of monsters in this thrilling survival action game!",
-            url: "https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html"
+            description: "Battle through endless waves of monsters in this thrilling survival action game! Use weapons and skills to defeat enemies and survive as long as possible.",
+            url: "https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html",
+            difficulty: "Medium",
+            duration: "30 mins",
+            ageRating: "12+",
+            tags: ["survival", "action", "monsters", "weapons"],
+            isNew: true,
+            isTop: true,
+            popularity: 95
         },
         {
             id: 2,
             title: "Space Adventure",
             category: "adventure",
             icon: "🚀",
-            description: "Explore mysterious space worlds and discover unknown planets and civilizations.",
-            url: "#"
+            description: "Explore mysterious space worlds and discover unknown planets and civilizations. Navigate through asteroid fields and alien territories.",
+            url: "#",
+            difficulty: "Easy",
+            duration: "45 mins",
+            ageRating: "8+",
+            tags: ["space", "exploration", "planets", "sci-fi"],
+            isNew: false,
+            isTop: true,
+            popularity: 88
         },
         {
             id: 3,
             title: "Chess Master",
             category: "strategy",
             icon: "♟️",
-            description: "Classic chess game that challenges your strategic thinking.",
-            url: "#"
+            description: "Classic chess game that challenges your strategic thinking. Play against AI opponents of different difficulty levels.",
+            url: "#",
+            difficulty: "Hard",
+            duration: "60 mins",
+            ageRating: "6+",
+            tags: ["chess", "strategy", "classic", "thinking"],
+            isNew: false,
+            isTop: true,
+            popularity: 82
         },
         {
             id: 4,
             title: "Puzzle Quest",
             category: "puzzle",
             icon: "🧩",
-            description: "Solve various interesting puzzles and exercise your logical thinking.",
-            url: "#"
+            description: "Solve various interesting puzzles and exercise your logical thinking. From simple patterns to complex brain teasers.",
+            url: "#",
+            difficulty: "Medium",
+            duration: "25 mins",
+            ageRating: "All",
+            tags: ["puzzle", "logic", "brain", "thinking"],
+            isNew: true,
+            isTop: true,
+            popularity: 79
         },
         {
             id: 5,
             title: "Speed Racer",
             category: "racing",
             icon: "🏎️",
-            description: "Show your driving skills on high-speed tracks.",
-            url: "#"
+            description: "Show your driving skills on high-speed tracks. Race against time and other players in exciting competitions.",
+            url: "#",
+            difficulty: "Medium",
+            duration: "20 mins",
+            ageRating: "10+",
+            tags: ["racing", "cars", "speed", "competition"],
+            isNew: false,
+            isTop: true,
+            popularity: 85
         },
         {
             id: 6,
             title: "Football Pro",
             category: "sports",
             icon: "⚽",
-            description: "Experience real football matches and become a star on the field.",
-            url: "#"
+            description: "Experience real football matches and become a star on the field. Control your team and win championships.",
+            url: "#",
+            difficulty: "Medium",
+            duration: "35 mins",
+            ageRating: "All",
+            tags: ["football", "sports", "team", "championship"],
+            isNew: false,
+            isTop: true,
+            popularity: 77
         },
         {
             id: 7,
             title: "Bubble Pop",
             category: "casual",
             icon: "🫧",
-            description: "Relaxing and fun bubble elimination game suitable for all ages.",
-            url: "#"
+            description: "Relaxing and fun bubble elimination game suitable for all ages. Match colors and create amazing combos.",
+            url: "#",
+            difficulty: "Easy",
+            duration: "15 mins",
+            ageRating: "All",
+            tags: ["bubbles", "casual", "relaxing", "match"],
+            isNew: false,
+            isTop: true,
+            popularity: 73
         },
         {
             id: 8,
             title: "Ninja Warrior",
             category: "action",
             icon: "🥷",
-            description: "Become a ninja warrior and survive in a dangerous world.",
-            url: "#"
+            description: "Become a ninja warrior and survive in a dangerous world. Use stealth and combat skills to overcome challenges.",
+            url: "#",
+            difficulty: "Hard",
+            duration: "40 mins",
+            ageRating: "13+",
+            tags: ["ninja", "stealth", "combat", "warrior"],
+            isNew: true,
+            isTop: true,
+            popularity: 91
+        },
+        {
+            id: 9,
+            title: "Magic Castle",
+            category: "adventure",
+            icon: "🏰",
+            description: "Explore a magical castle full of secrets and treasures. Solve puzzles and defeat magical creatures.",
+            url: "#",
+            difficulty: "Medium",
+            duration: "50 mins",
+            ageRating: "8+",
+            tags: ["magic", "castle", "treasure", "fantasy"],
+            isNew: true,
+            isTop: false,
+            popularity: 68
+        },
+        {
+            id: 10,
+            title: "City Builder",
+            category: "strategy",
+            icon: "🏗️",
+            description: "Build and manage your own city. Plan infrastructure, manage resources, and keep citizens happy.",
+            url: "#",
+            difficulty: "Hard",
+            duration: "90 mins",
+            ageRating: "10+",
+            tags: ["building", "management", "city", "strategy"],
+            isNew: true,
+            isTop: true,
+            popularity: 86
         }
     ],
     zh: [
@@ -157,64 +243,150 @@ const gamesData = {
             title: "怪物生存者",
             category: "action",
             icon: "👹",
-            description: "在这款激动人心的生存动作游戏中与成群的怪物战斗！",
-            url: "https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html"
+            description: "在这款激动人心的生存动作游戏中与成群的怪物战斗！使用武器和技能击败敌人，尽可能长时间生存。",
+            url: "https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html",
+            difficulty: "中等",
+            duration: "30分钟",
+            ageRating: "12+",
+            tags: ["生存", "动作", "怪物", "武器"],
+            isNew: true,
+            isTop: true,
+            popularity: 95
         },
         {
             id: 2,
             title: "太空冒险",
             category: "adventure",
             icon: "🚀",
-            description: "探索神秘的太空世界，发现未知的星球和文明。",
-            url: "#"
+            description: "探索神秘的太空世界，发现未知的星球和文明。穿越小行星带和外星领域。",
+            url: "#",
+            difficulty: "简单",
+            duration: "45分钟",
+            ageRating: "8+",
+            tags: ["太空", "探索", "星球", "科幻"],
+            isNew: false,
+            isTop: true,
+            popularity: 88
         },
         {
             id: 3,
             title: "国际象棋大师",
             category: "strategy",
             icon: "♟️",
-            description: "经典国际象棋游戏，挑战你的策略思维。",
-            url: "#"
+            description: "经典国际象棋游戏，挑战你的策略思维。与不同难度的AI对手对战。",
+            url: "#",
+            difficulty: "困难",
+            duration: "60分钟",
+            ageRating: "6+",
+            tags: ["象棋", "策略", "经典", "思考"],
+            isNew: false,
+            isTop: true,
+            popularity: 82
         },
         {
             id: 4,
             title: "益智探索",
             category: "puzzle",
             icon: "🧩",
-            description: "解决各种有趣的谜题，锻炼你的逻辑思维。",
-            url: "#"
+            description: "解决各种有趣的谜题，锻炼你的逻辑思维。从简单的图案到复杂的脑筋急转弯。",
+            url: "#",
+            difficulty: "中等",
+            duration: "25分钟",
+            ageRating: "全年龄",
+            tags: ["益智", "逻辑", "大脑", "思考"],
+            isNew: true,
+            isTop: true,
+            popularity: 79
         },
         {
             id: 5,
             title: "极速赛车",
             category: "racing",
             icon: "🏎️",
-            description: "在高速赛道上展现你的驾驶技巧。",
-            url: "#"
+            description: "在高速赛道上展现你的驾驶技巧。与时间和其他玩家在激动人心的比赛中竞速。",
+            url: "#",
+            difficulty: "中等",
+            duration: "20分钟",
+            ageRating: "10+",
+            tags: ["赛车", "汽车", "速度", "竞赛"],
+            isNew: false,
+            isTop: true,
+            popularity: 85
         },
         {
             id: 6,
             title: "足球专业版",
             category: "sports",
             icon: "⚽",
-            description: "体验真实的足球比赛，成为球场上的明星。",
-            url: "#"
+            description: "体验真实的足球比赛，成为球场上的明星。控制你的团队，赢得冠军。",
+            url: "#",
+            difficulty: "中等",
+            duration: "35分钟",
+            ageRating: "全年龄",
+            tags: ["足球", "体育", "团队", "冠军"],
+            isNew: false,
+            isTop: true,
+            popularity: 77
         },
         {
             id: 7,
             title: "泡泡消除",
             category: "casual",
             icon: "🫧",
-            description: "轻松有趣的泡泡消除游戏，适合所有年龄。",
-            url: "#"
+            description: "轻松有趣的泡泡消除游戏，适合所有年龄。匹配颜色，创造惊人的连击。",
+            url: "#",
+            difficulty: "简单",
+            duration: "15分钟",
+            ageRating: "全年龄",
+            tags: ["泡泡", "休闲", "放松", "匹配"],
+            isNew: false,
+            isTop: true,
+            popularity: 73
         },
         {
             id: 8,
             title: "忍者战士",
             category: "action",
             icon: "🥷",
-            description: "成为忍者战士，在危险的世界中生存。",
-            url: "#"
+            description: "成为忍者战士，在危险的世界中生存。使用隐身和战斗技巧克服挑战。",
+            url: "#",
+            difficulty: "困难",
+            duration: "40分钟",
+            ageRating: "13+",
+            tags: ["忍者", "隐身", "战斗", "武士"],
+            isNew: true,
+            isTop: true,
+            popularity: 91
+        },
+        {
+            id: 9,
+            title: "魔法城堡",
+            category: "adventure",
+            icon: "🏰",
+            description: "探索充满秘密和宝藏的魔法城堡。解决谜题，击败魔法生物。",
+            url: "#",
+            difficulty: "中等",
+            duration: "50分钟",
+            ageRating: "8+",
+            tags: ["魔法", "城堡", "宝藏", "幻想"],
+            isNew: true,
+            isTop: false,
+            popularity: 68
+        },
+        {
+            id: 10,
+            title: "城市建设者",
+            category: "strategy",
+            icon: "🏗️",
+            description: "建设和管理你自己的城市。规划基础设施，管理资源，保持居民满意。",
+            url: "#",
+            difficulty: "困难",
+            duration: "90分钟",
+            ageRating: "10+",
+            tags: ["建设", "管理", "城市", "策略"],
+            isNew: true,
+            isTop: true,
+            popularity: 86
         }
     ],
     ja: [
@@ -223,64 +395,150 @@ const gamesData = {
             title: "モンスターサバイバー",
             category: "action",
             icon: "👹",
-            description: "このスリリングなサバイバルアクションゲームで、無限のモンスターの波と戦おう！",
-            url: "https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html"
+            description: "このスリリングなサバイバルアクションゲームで、無限のモンスターの波と戦おう！武器とスキルを使って敵を倒し、できるだけ長く生き残ろう。",
+            url: "https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html",
+            difficulty: "普通",
+            duration: "30分",
+            ageRating: "12+",
+            tags: ["サバイバル", "アクション", "モンスター", "武器"],
+            isNew: true,
+            isTop: true,
+            popularity: 95
         },
         {
             id: 2,
             title: "スペースアドベンチャー",
             category: "adventure",
             icon: "🚀",
-            description: "神秘の宇宙世界を探索し、未知の惑星と文明を発見しよう。",
-            url: "#"
+            description: "神秘の宇宙世界を探索し、未知の惑星と文明を発見しよう。小惑星帯とエイリアンの領域を航行。",
+            url: "#",
+            difficulty: "簡単",
+            duration: "45分",
+            ageRating: "8+",
+            tags: ["宇宙", "探索", "惑星", "SF"],
+            isNew: false,
+            isTop: true,
+            popularity: 88
         },
         {
             id: 3,
             title: "チェスマスター",
             category: "strategy",
             icon: "♟️",
-            description: "戦略的思考に挑戦するクラシックチェスゲーム。",
-            url: "#"
+            description: "戦略的思考に挑戦するクラシックチェスゲーム。異なる難易度のAI対戦相手と対戦。",
+            url: "#",
+            difficulty: "難しい",
+            duration: "60分",
+            ageRating: "6+",
+            tags: ["チェス", "戦略", "クラシック", "思考"],
+            isNew: false,
+            isTop: true,
+            popularity: 82
         },
         {
             id: 4,
             title: "パズルクエスト",
             category: "puzzle",
             icon: "🧩",
-            description: "様々な興味深いパズルを解いて、論理的思考を鍛えよう。",
-            url: "#"
+            description: "様々な興味深いパズルを解いて、論理的思考を鍛えよう。単純なパターンから複雑な頭の体操まで。",
+            url: "#",
+            difficulty: "普通",
+            duration: "25分",
+            ageRating: "全年齢",
+            tags: ["パズル", "論理", "脳", "思考"],
+            isNew: true,
+            isTop: true,
+            popularity: 79
         },
         {
             id: 5,
             title: "スピードレーサー",
             category: "racing",
             icon: "🏎️",
-            description: "高速トラックで運転技術を披露しよう。",
-            url: "#"
+            description: "高速トラックで運転技術を披露しよう。時間と他のプレイヤーとエキサイティングな競争で競う。",
+            url: "#",
+            difficulty: "普通",
+            duration: "20分",
+            ageRating: "10+",
+            tags: ["レース", "車", "スピード", "競争"],
+            isNew: false,
+            isTop: true,
+            popularity: 85
         },
         {
             id: 6,
             title: "フットボールプロ",
             category: "sports",
             icon: "⚽",
-            description: "リアルなサッカーマッチを体験し、フィールドのスターになろう。",
-            url: "#"
+            description: "リアルなサッカーマッチを体験し、フィールドのスターになろう。チームをコントロールし、チャンピオンシップを勝ち取ろう。",
+            url: "#",
+            difficulty: "普通",
+            duration: "35分",
+            ageRating: "全年齢",
+            tags: ["サッカー", "スポーツ", "チーム", "チャンピオンシップ"],
+            isNew: false,
+            isTop: true,
+            popularity: 77
         },
         {
             id: 7,
             title: "バブルポップ",
             category: "casual",
             icon: "🫧",
-            description: "全年齢向けのリラックスできる楽しいバブル消去ゲーム。",
-            url: "#"
+            description: "全年齢向けのリラックスできる楽しいバブル消去ゲーム。色をマッチして素晴らしいコンボを作ろう。",
+            url: "#",
+            difficulty: "簡単",
+            duration: "15分",
+            ageRating: "全年齢",
+            tags: ["バブル", "カジュアル", "リラックス", "マッチ"],
+            isNew: false,
+            isTop: true,
+            popularity: 73
         },
         {
             id: 8,
             title: "ニンジャウォリアー",
             category: "action",
             icon: "🥷",
-            description: "忍者戦士となり、危険な世界で生き残ろう。",
-            url: "#"
+            description: "忍者戦士となり、危険な世界で生き残ろう。ステルスと戦闘スキルを使って挑戦を克服。",
+            url: "#",
+            difficulty: "難しい",
+            duration: "40分",
+            ageRating: "13+",
+            tags: ["忍者", "ステルス", "戦闘", "戦士"],
+            isNew: true,
+            isTop: true,
+            popularity: 91
+        },
+        {
+            id: 9,
+            title: "マジックキャッスル",
+            category: "adventure",
+            icon: "🏰",
+            description: "秘密と宝物に満ちた魔法の城を探索しよう。パズルを解き、魔法の生物を倒そう。",
+            url: "#",
+            difficulty: "普通",
+            duration: "50分",
+            ageRating: "8+",
+            tags: ["魔法", "城", "宝物", "ファンタジー"],
+            isNew: true,
+            isTop: false,
+            popularity: 68
+        },
+        {
+            id: 10,
+            title: "シティビルダー",
+            category: "strategy",
+            icon: "🏗️",
+            description: "あなた自身の都市を建設し管理しよう。インフラを計画し、資源を管理し、市民を幸せに保とう。",
+            url: "#",
+            difficulty: "難しい",
+            duration: "90分",
+            ageRating: "10+",
+            tags: ["建設", "管理", "都市", "戦略"],
+            isNew: true,
+            isTop: true,
+            popularity: 86
         }
     ]
 };
@@ -313,6 +571,9 @@ function switchLanguage(lang) {
     
     // 保存语言设置
     localStorage.setItem('gamewebLanguage', lang);
+    
+    // 更新特殊游戏区域
+    initSpecialGames();
 }
 
 function updatePageText() {
@@ -410,22 +671,23 @@ function searchGames(query) {
 
 // 打开游戏
 function openGame(game) {
-    if (game.url === '#') {
-        alert(translations[currentLanguage].coming_soon);
-        return;
-    }
-    
-    document.getElementById('modalGameTitle').textContent = game.title;
-    document.getElementById('gameFrame').src = game.url;
-    document.getElementById('gameModal').style.display = 'block';
-    document.body.style.overflow = 'hidden';
+    openGameEnhanced(game);
 }
 
 // 关闭游戏模态框
 function closeGameModal() {
-    document.getElementById('gameModal').style.display = 'none';
-    document.getElementById('gameFrame').src = '';
-    document.body.style.overflow = 'auto';
+    const modal = document.getElementById('gameModal');
+    const gameFrame = document.getElementById('gameFrame');
+    
+    modal.style.display = 'none';
+    gameFrame.src = '';
+    
+    // 清理详情信息
+    const tagsElement = document.getElementById('modalGameTags');
+    const recommendationsElement = document.getElementById('recommendedGames');
+    
+    if (tagsElement) tagsElement.innerHTML = '';
+    if (recommendationsElement) recommendationsElement.innerHTML = '';
 }
 
 // 后台管理系统
@@ -1091,6 +1353,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 渲染初始游戏
     renderGames();
+    
+    // 初始化特殊游戏区域
+    initSpecialGames();
 
     // 初始化管理员数据
     initAdminData();
@@ -1150,4 +1415,153 @@ document.addEventListener('DOMContentLoaded', function() {
             adminLogin();
         }
     });
-}); 
+});
+
+// 新增功能：特殊游戏区域
+function initSpecialGames() {
+    renderLatestGames();
+    renderTopGames();
+}
+
+// 渲染最新游戏
+function renderLatestGames() {
+    const latestGamesGrid = document.getElementById('latestGamesGrid');
+    if (!latestGamesGrid) return;
+    
+    const currentLang = getCurrentLanguage();
+    const games = gamesData[currentLang];
+    
+    // 获取最新游戏（isNew为true的游戏）
+    const latestGames = games.filter(game => game.isNew).slice(0, 5);
+    
+    latestGamesGrid.innerHTML = latestGames.map(game => `
+        <div class="special-game-item" onclick="openGameEnhanced(${JSON.stringify(game).replace(/"/g, '&quot;')})">
+            <span class="game-icon">${game.icon}</span>
+            <div class="game-title">${game.title}</div>
+            <div class="game-category">${getCategoryName(game.category)}</div>
+        </div>
+    `).join('');
+}
+
+// 渲染TOP10游戏
+function renderTopGames() {
+    const topGamesGrid = document.getElementById('topGamesGrid');
+    if (!topGamesGrid) return;
+    
+    const currentLang = getCurrentLanguage();
+    const games = gamesData[currentLang];
+    
+    // 获取TOP10游戏（按popularity排序）
+    const topGames = games
+        .filter(game => game.isTop)
+        .sort((a, b) => b.popularity - a.popularity)
+        .slice(0, 10);
+    
+    topGamesGrid.innerHTML = topGames.map((game, index) => `
+        <div class="special-game-item" onclick="openGameEnhanced(${JSON.stringify(game).replace(/"/g, '&quot;')})">
+            <span class="game-icon">${game.icon}</span>
+            <div class="game-title">#${index + 1} ${game.title}</div>
+            <div class="game-category">${getCategoryName(game.category)} • ${game.popularity}%</div>
+        </div>
+    `).join('');
+}
+
+// 增强的openGame函数，支持游戏详情
+function openGameEnhanced(game) {
+    if (game.url === '#') {
+        alert(translations[getCurrentLanguage()].coming_soon);
+        return;
+    }
+    
+    const modal = document.getElementById('gameModal');
+    const gameFrame = document.getElementById('gameFrame');
+    const modalTitle = document.getElementById('modalGameTitle');
+    
+    // 设置游戏基本信息
+    modalTitle.textContent = game.title;
+    gameFrame.src = game.url;
+    
+    // 设置游戏详情
+    setGameDetails(game);
+    
+    // 生成推荐游戏
+    generateRecommendations(game);
+    
+    modal.style.display = 'block';
+}
+
+// 设置游戏详情信息
+function setGameDetails(game) {
+    const currentLang = getCurrentLanguage();
+    
+    // 设置游戏信息
+    const categoryElement = document.getElementById('modalGameCategory');
+    const descriptionElement = document.getElementById('modalGameDescription');
+    const typeElement = document.getElementById('modalGameType');
+    const difficultyElement = document.getElementById('modalGameDifficulty');
+    const durationElement = document.getElementById('modalGameDuration');
+    const ageElement = document.getElementById('modalGameAge');
+    
+    if (categoryElement) categoryElement.textContent = getCategoryName(game.category);
+    if (descriptionElement) descriptionElement.textContent = game.description;
+    if (typeElement) typeElement.textContent = getCategoryName(game.category);
+    if (difficultyElement) difficultyElement.textContent = game.difficulty || '中等';
+    if (durationElement) durationElement.textContent = game.duration || '30分钟';
+    if (ageElement) ageElement.textContent = game.ageRating || '全年龄';
+    
+    // 设置游戏标签
+    const tagsContainer = document.getElementById('modalGameTags');
+    if (tagsContainer && game.tags && game.tags.length > 0) {
+        tagsContainer.innerHTML = game.tags.map(tag => 
+            `<span class="game-tag">${tag}</span>`
+        ).join('');
+    } else if (tagsContainer) {
+        tagsContainer.innerHTML = '';
+    }
+}
+
+// 生成推荐游戏
+function generateRecommendations(currentGame) {
+    const currentLang = getCurrentLanguage();
+    const games = gamesData[currentLang];
+    
+    // 获取同类型游戏作为推荐
+    const recommendations = games
+        .filter(game => 
+            game.id !== currentGame.id && 
+            game.category === currentGame.category
+        )
+        .slice(0, 4);
+    
+    // 如果同类型游戏不足4个，添加其他热门游戏
+    if (recommendations.length < 4) {
+        const additionalGames = games
+            .filter(game => 
+                game.id !== currentGame.id && 
+                game.category !== currentGame.category &&
+                game.isTop
+            )
+            .sort((a, b) => (b.popularity || 0) - (a.popularity || 0))
+            .slice(0, 4 - recommendations.length);
+        
+        recommendations.push(...additionalGames);
+    }
+    
+    const recommendationsContainer = document.getElementById('recommendedGames');
+    if (recommendationsContainer) {
+        recommendationsContainer.innerHTML = recommendations.map(game => `
+            <div class="recommended-game-item" onclick="openGameEnhanced(${JSON.stringify(game).replace(/"/g, '&quot;')})">
+                <div class="recommended-game-icon">${game.icon}</div>
+                <div class="recommended-game-info">
+                    <div class="recommended-game-title">${game.title}</div>
+                    <div class="recommended-game-category">${getCategoryName(game.category)}</div>
+                </div>
+            </div>
+        `).join('');
+    }
+}
+
+// 获取当前语言
+function getCurrentLanguage() {
+    return localStorage.getItem('gamewebLanguage') || 'en';
+} 
