@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameWEB - Free Online Games Platform</title>
+    <meta name="description" content="GameWEB provides the best free online games including action, adventure, strategy, casual games. No download required, play instantly!">
+    <meta name="keywords" content="online games, free games, web games, action games, adventure games">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3RMNK2YTF1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3RMNK2YTF1');
+    </script>
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="nav-top">
+                <div class="logo">🎮 GameWEB</div>
+                <div class="search-container">
+                    <div class="search-icon">🔍</div>
+                    <input type="text" class="search-box" placeholder="Search games..." id="searchInput" data-i18n-placeholder="search_placeholder">
+                </div>
+                <div class="nav-right">
+                    <div class="tagline" data-i18n="tagline">Free Online Games</div>
+                    <div class="language-switcher">
+                        <button class="language-btn" id="languageBtn">
+                            <span id="currentLangFlag">🇺🇸</span>
+                            <span id="currentLangText">EN</span>
+                            <span>▼</span>
+                        </button>
+                        <div class="language-dropdown" id="languageDropdown">
+                            <div class="language-option active" data-lang="en">
+                                <span>🇺🇸</span>
+                                <span>English</span>
+                            </div>
+                            <div class="language-option" data-lang="zh">
+                                <span>🇨🇳</span>
+                                <span>中文</span>
+                            </div>
+                            <div class="language-option" data-lang="ja">
+                                <span>🇯🇵</span>
+                                <span>日本語</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" data-category="all" data-i18n="nav_all">All</a>
+                <a href="#" class="nav-item" data-category="action" data-i18n="nav_action">Action</a>
+                <a href="#" class="nav-item" data-category="adventure" data-i18n="nav_adventure">Adventure</a>
+                <a href="#" class="nav-item" data-category="strategy" data-i18n="nav_strategy">Strategy</a>
+                <a href="#" class="nav-item" data-category="puzzle" data-i18n="nav_puzzle">Puzzle</a>
+                <a href="#" class="nav-item" data-category="racing" data-i18n="nav_racing">Racing</a>
+                <a href="#" class="nav-item" data-category="sports" data-i18n="nav_sports">Sports</a>
+                <a href="#" class="nav-item" data-category="casual" data-i18n="nav_casual">Casual</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 主要内容 -->
+    <main class="main-container">
+        <!-- 特色游戏区域 -->
+        <section class="featured-section">
+            <h1 class="section-title" data-i18n="featured_title">🌟 Featured Games</h1>
+            <p style="text-align: center; color: #666; margin-bottom: 30px;" data-i18n="featured_subtitle">
+                Discover the most popular online games, no download required, play instantly!
+            </p>
+            
+            <div class="games-grid" id="gamesGrid">
+                <!-- 游戏卡片将通过JavaScript动态生成 -->
+            </div>
+        </section>
+
+        <!-- 关于平台 -->
+        <section class="category-section">
+            <h2 class="section-title" data-i18n="about_title">🎮 About GameWEB</h2>
+            <p style="text-align: center; color: #666; line-height: 1.8; font-size: 1.1rem;" data-i18n="about_content">
+                GameWEB 是您的专属在线游戏平台，提供丰富多样的免费网页游戏。我们致力于为玩家带来最佳的游戏体验，所有游戏都经过精心挑选，支持多种设备，让您随时随地享受游戏的乐趣！
+            </p>
+        </section>
+    </main>
+
+    <!-- 游戏模态框 -->
+    <div class="game-modal" id="gameModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalGameTitle">Game Title</h3>
+                <button class="close-btn" onclick="closeGameModal()">&times;</button>
+            </div>
+            <iframe class="game-frame" id="gameFrame" src=""></iframe>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="nav-container">
+            <p data-i18n="footer_text">&copy; 2025 GameWEB - Free Online Games Platform | Enjoy games, have fun every day!</p>
+            <!-- 后台管理入口 -->
+            <div style="margin-top: 10px;">
+                <button id="adminEntryBtn" style="background: none; border: none; color: #999; font-size: 12px; cursor: pointer; padding: 5px;" onclick="showAdminPanel()">管理员</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 后台管理系统 -->
+    <div id="adminPanel" class="admin-panel" style="display: none;">
+        <div class="admin-container">
+            <!-- 登录界面 -->
+            <div id="adminLogin" class="admin-section">
+                <div class="admin-login-box">
+                    <h2>🔐 管理员登录</h2>
+                    <input type="password" id="adminPassword" placeholder="请输入管理员密码" class="admin-input">
+                    <button onclick="adminLogin()" class="admin-btn">登录</button>
+                    <p style="font-size: 12px; color: #999; margin-top: 10px;">默认密码：admin123</p>
+                    <button onclick="hideAdminPanel()" style="margin-top: 20px; background: none; border: none; color: #999; cursor: pointer;">取消</button>
+                </div>
+            </div>
+
+            <!-- 管理界面 -->
+            <div id="adminDashboard" class="admin-section" style="display: none;">
+                <div class="admin-header">
+                    <h2>🎮 GameWEB 管理后台</h2>
+                    <button onclick="adminLogout()" class="admin-btn admin-btn-secondary">退出登录</button>
+                </div>
+
+                <!-- 导航标签 -->
+                <div class="admin-tabs">
+                    <button class="admin-tab active" onclick="showAdminTab('games')">游戏管理</button>
+                    <button class="admin-tab" onclick="showAdminTab('batch')">批量导入</button>
+                    <button class="admin-tab" onclick="showAdminTab('iframe')">iframe检测</button>
+                    <button class="admin-tab" onclick="showAdminTab('data')">数据管理</button>
+                    <button class="admin-tab" onclick="showAdminTab('stats')">统计信息</button>
+                </div>
+
+                <!-- 游戏管理 -->
+                <div id="adminGames" class="admin-content">
+                    <div class="admin-toolbar">
+                        <button onclick="showAddGameForm()" class="admin-btn">+ 添加新游戏</button>
+                        <button onclick="exportGames()" class="admin-btn admin-btn-secondary">导出游戏</button>
+                        <select id="filterCategory" onchange="filterAdminGames()" class="admin-select">
+                            <option value="all">所有分类</option>
+                            <option value="action">动作</option>
+                            <option value="adventure">冒险</option>
+                            <option value="strategy">策略</option>
+                            <option value="puzzle">益智</option>
+                            <option value="racing">竞速</option>
+                            <option value="sports">体育</option>
+                            <option value="casual">休闲</option>
+                        </select>
+                    </div>
+
+                    <!-- 添加/编辑游戏表单 -->
+                    <div id="gameForm" class="admin-form" style="display: none;">
+                        <h3 id="formTitle">添加新游戏</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>游戏标题 (英文):</label>
+                                <input type="text" id="gameTitle_en" class="admin-input">
+                            </div>
+                            <div class="form-group">
+                                <label>游戏标题 (中文):</label>
+                                <input type="text" id="gameTitle_zh" class="admin-input">
+                            </div>
+                            <div class="form-group">
+                                <label>游戏标题 (日文):</label>
+                                <input type="text" id="gameTitle_ja" class="admin-input">
+                            </div>
+                            <div class="form-group">
+                                <label>游戏分类:</label>
+                                <select id="gameCategory" class="admin-select">
+                                    <option value="action">动作</option>
+                                    <option value="adventure">冒险</option>
+                                    <option value="strategy">策略</option>
+                                    <option value="puzzle">益智</option>
+                                    <option value="racing">竞速</option>
+                                    <option value="sports">体育</option>
+                                    <option value="casual">休闲</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>游戏图标 (表情符号):</label>
+                                <input type="text" id="gameIcon" class="admin-input" placeholder="🎮">
+                            </div>
+                            <div class="form-group">
+                                <label>游戏链接:</label>
+                                <input type="url" id="gameUrl" class="admin-input" placeholder="https://...">
+                            </div>
+                            <div class="form-group full-width">
+                                <label>游戏描述 (英文):</label>
+                                <textarea id="gameDesc_en" class="admin-textarea"></textarea>
+                            </div>
+                            <div class="form-group full-width">
+                                <label>游戏描述 (中文):</label>
+                                <textarea id="gameDesc_zh" class="admin-textarea"></textarea>
+                            </div>
+                            <div class="form-group full-width">
+                                <label>游戏描述 (日文):</label>
+                                <textarea id="gameDesc_ja" class="admin-textarea"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button onclick="saveGame()" class="admin-btn">保存游戏</button>
+                            <button onclick="cancelGameForm()" class="admin-btn admin-btn-secondary">取消</button>
+                        </div>
+                    </div>
+
+                    <!-- 游戏列表 -->
+                    <div id="gamesList" class="admin-games-list"></div>
+                </div>
+
+                <!-- 批量导入 -->
+                <div id="adminBatch" class="admin-content" style="display: none;">
+                    <h3>📦 批量导入游戏</h3>
+                    <div class="batch-options">
+                        <div class="batch-method">
+                            <h4>方法一：JSON 导入</h4>
+                            <textarea id="jsonInput" class="admin-textarea" placeholder='[{"title_en":"游戏名称","title_zh":"游戏名","title_ja":"ゲーム名","category":"action","icon":"🎮","url":"https://...","description_en":"...","description_zh":"...","description_ja":"..."}]'></textarea>
+                            <button onclick="importFromJSON()" class="admin-btn">从 JSON 导入</button>
+                        </div>
+                        <div class="batch-method">
+                            <h4>方法二：CSV 导入</h4>
+                            <input type="file" id="csvFile" accept=".csv" class="admin-input">
+                            <button onclick="importFromCSV()" class="admin-btn">从 CSV 导入</button>
+                            <p style="font-size: 12px; color: #666;">CSV 格式：title_en,title_zh,title_ja,category,icon,url,description_en,description_zh,description_ja</p>
+                        </div>
+                        <div class="batch-method">
+                            <h4>方法三：快速添加模板</h4>
+                            <button onclick="generateTemplate()" class="admin-btn admin-btn-secondary">生成模板</button>
+                            <button onclick="downloadTemplate()" class="admin-btn admin-btn-secondary">下载 CSV 模板</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- iframe检测器 -->
+                <div id="adminIframe" class="admin-content" style="display: none;">
+                    <h3>🔍 iframe 检测器</h3>
+                    <div class="iframe-detector">
+                        <div class="form-group">
+                            <label>网站链接:</label>
+                            <input type="url" id="websiteUrl" class="admin-input" placeholder="https://example.com">
+                            <button onclick="detectIframes()" class="admin-btn">检测 iframe</button>
+                        </div>
+                        <div class="form-group">
+                            <label>或粘贴 HTML 内容:</label>
+                            <textarea id="htmlContent" class="admin-textarea" placeholder="在此粘贴 HTML 内容..."></textarea>
+                            <button onclick="extractIframes()" class="admin-btn">提取 iframe</button>
+                        </div>
+                        <div id="iframeResults" class="iframe-results"></div>
+                    </div>
+                </div>
+
+                <!-- 数据管理 -->
+                <div id="adminData" class="admin-content" style="display: none;">
+                    <h3>💾 数据管理</h3>
+                    <div class="data-management">
+                        <div class="data-section">
+                            <h4>备份与恢复</h4>
+                            <button onclick="backupData()" class="admin-btn">备份所有数据</button>
+                            <input type="file" id="restoreFile" accept=".json" class="admin-input">
+                            <button onclick="restoreData()" class="admin-btn">恢复数据</button>
+                        </div>
+                        <div class="data-section">
+                            <h4>重置选项</h4>
+                            <button onclick="resetToDefault()" class="admin-btn admin-btn-danger">重置为默认游戏</button>
+                            <button onclick="clearAllData()" class="admin-btn admin-btn-danger">清空所有数据</button>
+                        </div>
+                        <div class="data-section">
+                            <h4>存储信息</h4>
+                            <div id="storageInfo"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 统计信息 -->
+                <div id="adminStats" class="admin-content" style="display: none;">
+                    <h3>📊 统计信息</h3>
+                    <div id="statsContent" class="stats-content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
