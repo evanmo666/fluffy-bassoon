@@ -571,9 +571,6 @@ function switchLanguage(lang) {
     
     // 保存语言设置
     localStorage.setItem('gamewebLanguage', lang);
-    
-    // 更新特殊游戏区域
-    initSpecialGames();
 }
 
 function updatePageText() {
@@ -644,11 +641,22 @@ function getCategoryName(category) {
 // 过滤游戏
 function filterGames(category) {
     currentCategory = category;
+    
     if (category === 'all') {
         filteredGames = gamesData[currentLanguage];
+    } else if (category === 'new') {
+        // 过滤最新游戏
+        filteredGames = gamesData[currentLanguage].filter(game => game.isNew);
+    } else if (category === 'top') {
+        // 过滤TOP10游戏
+        filteredGames = gamesData[currentLanguage]
+            .filter(game => game.isTop)
+            .sort((a, b) => (b.popularity || 0) - (a.popularity || 0))
+            .slice(0, 10);
     } else {
         filteredGames = gamesData[currentLanguage].filter(game => game.category === category);
     }
+    
     renderGames();
     
     // 更新导航状态
@@ -658,6 +666,41 @@ function filterGames(category) {
             item.classList.add('active');
         }
     });
+    
+    // 更新分类卡片高亮状态
+    updateCategoryHighlight(category);
+}
+
+// 更新分类卡片高亮状态
+function updateCategoryHighlight(category) {
+    // 移除所有分类卡片的高亮状态
+    document.querySelectorAll('.category-card').forEach(card => {
+        card.style.border = '';
+        card.style.transform = '';
+        card.style.boxShadow = '';
+    });
+    
+    // 高亮当前选中的分类
+    let targetCard = null;
+    if (category === 'new') {
+        targetCard = document.querySelector('.special-category-new');
+    } else if (category === 'top') {
+        targetCard = document.querySelector('.special-category-top');
+    } else if (category === 'action') {
+        targetCard = document.getElementById('action-games');
+    } else if (category === 'puzzle') {
+        targetCard = document.getElementById('puzzle-games');
+    } else if (category === 'strategy') {
+        targetCard = document.getElementById('strategy-games');
+    } else if (category === 'adventure') {
+        targetCard = document.getElementById('adventure-games');
+    }
+    
+    if (targetCard) {
+        targetCard.style.border = '3px solid #667eea';
+        targetCard.style.transform = 'translateY(-8px)';
+        targetCard.style.boxShadow = '0 12px 35px rgba(102, 126, 234, 0.3)';
+    }
 }
 
 // 搜索游戏
@@ -671,7 +714,97 @@ function searchGames(query) {
 
 // 打开游戏
 function openGame(game) {
-    openGameEnhanced(game);
+    if (game.url === '#') {
+        alert(translations[getCurrentLanguage()].coming_soon);
+        return;
+    }
+    
+    const modal = document.getElementById('gameModal');
+    const gameFrame = document.getElementById('gameFrame');
+    const modalTitle = document.getElementById('modalGameTitle');
+    
+    // 设置游戏基本信息
+    modalTitle.textContent = game.title;
+    gameFrame.src = game.url;
+    
+    // 设置游戏详情
+    setGameDetails(game);
+    
+    // 生成推荐游戏
+    generateRecommendations(game);
+    
+    modal.style.display = 'block';
+}
+
+// 设置游戏详情信息
+function setGameDetails(game) {
+    const currentLang = getCurrentLanguage();
+    
+    // 设置游戏信息
+    const categoryElement = document.getElementById('modalGameCategory');
+    const descriptionElement = document.getElementById('modalGameDescription');
+    const typeElement = document.getElementById('modalGameType');
+    const difficultyElement = document.getElementById('modalGameDifficulty');
+    const durationElement = document.getElementById('modalGameDuration');
+    const ageElement = document.getElementById('modalGameAge');
+    
+    if (categoryElement) categoryElement.textContent = getCategoryName(game.category);
+    if (descriptionElement) descriptionElement.textContent = game.description;
+    if (typeElement) typeElement.textContent = getCategoryName(game.category);
+    if (difficultyElement) difficultyElement.textContent = game.difficulty || '中等';
+    if (durationElement) durationElement.textContent = game.duration || '30分钟';
+    if (ageElement) ageElement.textContent = game.ageRating || '全年龄';
+    
+    // 设置游戏标签
+    const tagsContainer = document.getElementById('modalGameTags');
+    if (tagsContainer && game.tags && game.tags.length > 0) {
+        tagsContainer.innerHTML = game.tags.map(tag => 
+            `<span class="game-tag">${tag}</span>`
+        ).join('');
+    } else if (tagsContainer) {
+        tagsContainer.innerHTML = '';
+    }
+}
+
+// 生成推荐游戏
+function generateRecommendations(currentGame) {
+    const currentLang = getCurrentLanguage();
+    const games = gamesData[currentLang];
+    
+    // 获取同类型游戏作为推荐
+    const recommendations = games
+        .filter(game => 
+            game.id !== currentGame.id && 
+            game.category === currentGame.category
+        )
+        .slice(0, 4);
+    
+    // 如果同类型游戏不足4个，添加其他热门游戏
+    if (recommendations.length < 4) {
+        const additionalGames = games
+            .filter(game => 
+                game.id !== currentGame.id && 
+                game.category !== currentGame.category &&
+                game.isTop
+            )
+            .sort((a, b) => (b.popularity || 0) - (a.popularity || 0))
+            .slice(0, 4 - recommendations.length);
+        
+        recommendations.push(...additionalGames);
+    }
+    
+    const recommendationsContainer = document.getElementById('recommendedGames');
+    if (recommendationsContainer) {
+        recommendationsContainer.innerHTML = recommendations.map(game => `
+            <div class="recommended-game-item" onclick="openGame(${JSON.stringify(game).replace(/"/g, '&quot;')})">
+                <div class="recommended-game-icon">${game.icon}</div>
+                <div class="recommended-game-info">
+                    <div class="recommended-game-title">${game.title}</div>
+                    <div class="recommended-game-category">${getCategoryName(game.category)}</div>
+                </div>
+            </div>
+        `).join('');
+    }
 }
 
 // 关闭游戏模态框
@@ -1353,9 +1486,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 渲染初始游戏
     renderGames();
-    
-    // 初始化特殊游戏区域
-    initSpecialGames();
 
     // 初始化管理员数据
     initAdminData();
@@ -1416,150 +1546,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-
-// 新增功能：特殊游戏区域
-function initSpecialGames() {
-    renderLatestGames();
-    renderTopGames();
-}
-
-// 渲染最新游戏
-function renderLatestGames() {
-    const latestGamesGrid = document.getElementById('latestGamesGrid');
-    if (!latestGamesGrid) return;
-    
-    const currentLang = getCurrentLanguage();
-    const games = gamesData[currentLang];
-    
-    // 获取最新游戏（isNew为true的游戏）
-    const latestGames = games.filter(game => game.isNew).slice(0, 5);
-    
-    latestGamesGrid.innerHTML = latestGames.map(game => `
-        <div class="special-game-item" onclick="openGameEnhanced(${JSON.stringify(game).replace(/"/g, '&quot;')})">
-            <span class="game-icon">${game.icon}</span>
-            <div class="game-title">${game.title}</div>
-            <div class="game-category">${getCategoryName(game.category)}</div>
-        </div>
-    `).join('');
-}
-
-// 渲染TOP10游戏
-function renderTopGames() {
-    const topGamesGrid = document.getElementById('topGamesGrid');
-    if (!topGamesGrid) return;
-    
-    const currentLang = getCurrentLanguage();
-    const games = gamesData[currentLang];
-    
-    // 获取TOP10游戏（按popularity排序）
-    const topGames = games
-        .filter(game => game.isTop)
-        .sort((a, b) => b.popularity - a.popularity)
-        .slice(0, 10);
-    
-    topGamesGrid.innerHTML = topGames.map((game, index) => `
-        <div class="special-game-item" onclick="openGameEnhanced(${JSON.stringify(game).replace(/"/g, '&quot;')})">
-            <span class="game-icon">${game.icon}</span>
-            <div class="game-title">#${index + 1} ${game.title}</div>
-            <div class="game-category">${getCategoryName(game.category)} • ${game.popularity}%</div>
-        </div>
-    `).join('');
-}
-
-// 增强的openGame函数，支持游戏详情
-function openGameEnhanced(game) {
-    if (game.url === '#') {
-        alert(translations[getCurrentLanguage()].coming_soon);
-        return;
-    }
-    
-    const modal = document.getElementById('gameModal');
-    const gameFrame = document.getElementById('gameFrame');
-    const modalTitle = document.getElementById('modalGameTitle');
-    
-    // 设置游戏基本信息
-    modalTitle.textContent = game.title;
-    gameFrame.src = game.url;
-    
-    // 设置游戏详情
-    setGameDetails(game);
-    
-    // 生成推荐游戏
-    generateRecommendations(game);
-    
-    modal.style.display = 'block';
-}
-
-// 设置游戏详情信息
-function setGameDetails(game) {
-    const currentLang = getCurrentLanguage();
-    
-    // 设置游戏信息
-    const categoryElement = document.getElementById('modalGameCategory');
-    const descriptionElement = document.getElementById('modalGameDescription');
-    const typeElement = document.getElementById('modalGameType');
-    const difficultyElement = document.getElementById('modalGameDifficulty');
-    const durationElement = document.getElementById('modalGameDuration');
-    const ageElement = document.getElementById('modalGameAge');
-    
-    if (categoryElement) categoryElement.textContent = getCategoryName(game.category);
-    if (descriptionElement) descriptionElement.textContent = game.description;
-    if (typeElement) typeElement.textContent = getCategoryName(game.category);
-    if (difficultyElement) difficultyElement.textContent = game.difficulty || '中等';
-    if (durationElement) durationElement.textContent = game.duration || '30分钟';
-    if (ageElement) ageElement.textContent = game.ageRating || '全年龄';
-    
-    // 设置游戏标签
-    const tagsContainer = document.getElementById('modalGameTags');
-    if (tagsContainer && game.tags && game.tags.length > 0) {
-        tagsContainer.innerHTML = game.tags.map(tag => 
-            `<span class="game-tag">${tag}</span>`
-        ).join('');
-    } else if (tagsContainer) {
-        tagsContainer.innerHTML = '';
-    }
-}
-
-// 生成推荐游戏
-function generateRecommendations(currentGame) {
-    const currentLang = getCurrentLanguage();
-    const games = gamesData[currentLang];
-    
-    // 获取同类型游戏作为推荐
-    const recommendations = games
-        .filter(game => 
-            game.id !== currentGame.id && 
-            game.category === currentGame.category
-        )
-        .slice(0, 4);
-    
-    // 如果同类型游戏不足4个，添加其他热门游戏
-    if (recommendations.length < 4) {
-        const additionalGames = games
-            .filter(game => 
-                game.id !== currentGame.id && 
-                game.category !== currentGame.category &&
-                game.isTop
-            )
-            .sort((a, b) => (b.popularity || 0) - (a.popularity || 0))
-            .slice(0, 4 - recommendations.length);
-        
-        recommendations.push(...additionalGames);
-    }
-    
-    const recommendationsContainer = document.getElementById('recommendedGames');
-    if (recommendationsContainer) {
-        recommendationsContainer.innerHTML = recommendations.map(game => `
-            <div class="recommended-game-item" onclick="openGameEnhanced(${JSON.stringify(game).replace(/"/g, '&quot;')})">
-                <div class="recommended-game-icon">${game.icon}</div>
-                <div class="recommended-game-info">
-                    <div class="recommended-game-title">${game.title}</div>
-                    <div class="recommended-game-category">${getCategoryName(game.category)}</div>
-                </div>
-            </div>
-        `).join('');
-    }
-}
 
 // 获取当前语言
 function getCurrentLanguage() {
