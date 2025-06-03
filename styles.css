@@ -713,3 +713,193 @@ body {
         min-width: 120px;
     }
 }
+
+/* 新增的SEO优化样式 */
+
+/* 分类卡片样式 */
+.category-card {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: #667eea;
+}
+
+.category-card h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.category-card p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* FAQ样式 */
+.faq-section {
+    background: #f8f9fa;
+    padding: 60px 20px;
+    margin: 40px 0;
+    border-radius: 16px;
+}
+
+.faq-item {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.faq-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.faq-item h3 {
+    position: relative;
+    padding-right: 30px;
+}
+
+.faq-item h3::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 1.5rem;
+    color: #667eea;
+    transition: transform 0.3s ease;
+}
+
+.faq-item:hover h3::after {
+    transform: rotate(45deg);
+}
+
+/* 面包屑导航样式 */
+nav[aria-label="Breadcrumb"] {
+    border-bottom: 1px solid #e9ecef;
+}
+
+nav[aria-label="Breadcrumb"] a:hover {
+    color: #0056b3 !important;
+    text-decoration: underline !important;
+}
+
+/* 改进的搜索框样式 */
+.search-container {
+    position: relative;
+}
+
+.search-box {
+    padding-left: 45px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* 语义化标签样式优化 */
+main[role="main"] {
+    min-height: 60vh;
+}
+
+header[role="banner"] {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+/* 游戏网格的可访问性改进 */
+.games-grid[role="region"] {
+    outline: none;
+}
+
+.games-grid[role="region"]:focus-within {
+    outline: 2px solid #667eea;
+    outline-offset: 4px;
+    border-radius: 8px;
+}
+
+/* 改进的按钮样式 */
+button, .nav-item, .game-card {
+    transition: all 0.3s ease;
+}
+
+button:focus, .nav-item:focus, .game-card:focus {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* 响应式改进 */
+@media (max-width: 768px) {
+    .category-card {
+        padding: 20px;
+    }
+    
+    .faq-section {
+        padding: 40px 15px;
+    }
+    
+    nav[aria-label="Breadcrumb"] {
+        padding: 8px 0;
+    }
+    
+    nav[aria-label="Breadcrumb"] ol {
+        font-size: 12px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .category-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .category-card p {
+        font-size: 0.9rem;
+    }
+    
+    .faq-item {
+        padding: 15px !important;
+    }
+}
+
+/* 性能优化 - 减少重绘 */
+* {
+    box-sizing: border-box;
+}
+
+img, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 打印样式 */
+@media print {
+    .header, .footer, .admin-panel, .game-modal {
+        display: none !important;
+    }
+    
+    .main-container {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .section-title {
+        color: #000 !important;
+    }
+}

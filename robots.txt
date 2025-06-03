@@ -1,0 +1,31 @@
+User-agent: *
+Allow: /
+
+# 允许所有搜索引擎访问
+Allow: /styles.css
+Allow: /script.js
+Allow: /images/
+Allow: /favicon.ico
+
+# 不允许访问管理员区域
+Disallow: /*admin*
+Disallow: /*login*
+
+# 网站地图位置
+Sitemap: https://yourwebsite.com/sitemap.xml
+
+# 抓取延迟（可选，对服务器友好）
+Crawl-delay: 1
+
+# 针对特定搜索引擎的设置
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2 
