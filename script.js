@@ -4,6 +4,8 @@ const translations = {
         tagline: "Free Online Games",
         search_placeholder: "Search games...",
         nav_all: "All",
+        nav_new: "🆕 Latest",
+        nav_top: "🏆 Top 10",
         nav_action: "Action",
         nav_adventure: "Adventure",
         nav_strategy: "Strategy",
@@ -31,6 +33,8 @@ const translations = {
         tagline: "免费在线游戏",
         search_placeholder: "搜索游戏...",
         nav_all: "全部",
+        nav_new: "🆕 最新游戏",
+        nav_top: "🏆 最火TOP10",
         nav_action: "动作",
         nav_adventure: "冒险",
         nav_strategy: "策略",
@@ -58,6 +62,8 @@ const translations = {
         tagline: "無料オンラインゲーム",
         search_placeholder: "ゲームを検索...",
         nav_all: "すべて",
+        nav_new: "🆕 最新ゲーム",
+        nav_top: "🏆 トップ10",
         nav_action: "アクション",
         nav_adventure: "アドベンチャー",
         nav_strategy: "ストラテジー",
@@ -680,13 +686,9 @@ function updateCategoryHighlight(category) {
         card.style.boxShadow = '';
     });
     
-    // 高亮当前选中的分类
+    // 高亮当前选中的分类卡片（仅普通分类）
     let targetCard = null;
-    if (category === 'new') {
-        targetCard = document.querySelector('.special-category-new');
-    } else if (category === 'top') {
-        targetCard = document.querySelector('.special-category-top');
-    } else if (category === 'action') {
+    if (category === 'action') {
         targetCard = document.getElementById('action-games');
     } else if (category === 'puzzle') {
         targetCard = document.getElementById('puzzle-games');

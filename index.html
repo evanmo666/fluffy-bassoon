@@ -148,6 +148,8 @@
             </div>
             <nav class="nav-menu" role="navigation" aria-label="Game categories">
                 <a href="#" class="nav-item active" data-category="all" data-i18n="nav_all" aria-current="page">All Games</a>
+                <a href="#new-games" class="nav-item nav-item-special nav-item-new" data-category="new" data-i18n="nav_new">🆕 最新游戏</a>
+                <a href="#top-games" class="nav-item nav-item-special nav-item-top" data-category="top" data-i18n="nav_top">🏆 最火TOP10</a>
                 <a href="#action-games" class="nav-item" data-category="action" data-i18n="nav_action">Action Games</a>
                 <a href="#adventure-games" class="nav-item" data-category="adventure" data-i18n="nav_adventure">Adventure Games</a>
                 <a href="#strategy-games" class="nav-item" data-category="strategy" data-i18n="nav_strategy">Strategy Games</a>
@@ -196,18 +198,6 @@
             </header>
             
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0;">
-                <!-- 特殊分类：最新游戏 -->
-                <article class="category-card special-category-new" onclick="filterGames('new')" style="cursor: pointer;">
-                    <h3>🆕 最新游戏</h3>
-                    <p>体验最新添加的热门游戏，第一时间享受最新的游戏内容和创新玩法。</p>
-                </article>
-                
-                <!-- 特殊分类：最火游戏TOP10 -->
-                <article class="category-card special-category-top" onclick="filterGames('top')" style="cursor: pointer;">
-                    <h3>🏆 最火游戏TOP10</h3>
-                    <p>最受欢迎的十大游戏，经过玩家验证的精品游戏，保证游戏品质。</p>
-                </article>
-                
                 <article class="category-card" id="action-games" onclick="filterGames('action')" style="cursor: pointer;">
                     <h3>⚔️ Action Games</h3>
                     <p>Fast-paced action games with thrilling gameplay. Fight enemies, complete missions, and test your reflexes in our action-packed collection.</p>
