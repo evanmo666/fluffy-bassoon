@@ -12,7 +12,7 @@ Disallow: /*admin*
 Disallow: /*login*
 
 # 网站地图位置
-Sitemap: https://yourwebsite.com/sitemap.xml
+Sitemap: https://evanmoplaygame.org/sitemap.xml
 
 # 抓取延迟（可选，对服务器友好）
 Crawl-delay: 1

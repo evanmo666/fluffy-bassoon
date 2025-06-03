@@ -4,60 +4,60 @@
     
     <!-- 主页 -->
     <url>
-        <loc>https://yourwebsite.com/</loc>
+        <loc>https://evanmoplaygame.org/</loc>
         <lastmod>2025-01-27</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
-        <xhtml:link rel="alternate" hreflang="en" href="https://yourwebsite.com/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://yourwebsite.com/zh/"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://yourwebsite.com/ja/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://evanmoplaygame.org/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://evanmoplaygame.org/zh/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://evanmoplaygame.org/ja/"/>
     </url>
     
     <!-- 游戏分类页面 -->
     <url>
-        <loc>https://yourwebsite.com/#action-games</loc>
+        <loc>https://evanmoplaygame.org/#action-games</loc>
         <lastmod>2025-01-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://yourwebsite.com/#adventure-games</loc>
+        <loc>https://evanmoplaygame.org/#adventure-games</loc>
         <lastmod>2025-01-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://yourwebsite.com/#strategy-games</loc>
+        <loc>https://evanmoplaygame.org/#strategy-games</loc>
         <lastmod>2025-01-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://yourwebsite.com/#puzzle-games</loc>
+        <loc>https://evanmoplaygame.org/#puzzle-games</loc>
         <lastmod>2025-01-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://yourwebsite.com/#racing-games</loc>
+        <loc>https://evanmoplaygame.org/#racing-games</loc>
         <lastmod>2025-01-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     
     <url>
-        <loc>https://yourwebsite.com/#sports-games</loc>
+        <loc>https://evanmoplaygame.org/#sports-games</loc>
         <lastmod>2025-01-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     
     <url>
-        <loc>https://yourwebsite.com/#casual-games</loc>
+        <loc>https://evanmoplaygame.org/#casual-games</loc>
         <lastmod>2025-01-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
@@ -65,7 +65,7 @@
     
     <!-- 关于页面 -->
     <url>
-        <loc>https://yourwebsite.com/#about-gameweb</loc>
+        <loc>https://evanmoplaygame.org/#about-gameweb</loc>
         <lastmod>2025-01-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
@@ -73,7 +73,7 @@
     
     <!-- FAQ页面 -->
     <url>
-        <loc>https://yourwebsite.com/#faq</loc>
+        <loc>https://evanmoplaygame.org/#faq</loc>
         <lastmod>2025-01-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
